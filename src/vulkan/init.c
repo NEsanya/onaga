@@ -11,7 +11,7 @@ print_extensions ()
     vkEnumerateInstanceExtensionProperties (NULL, &extension_count, NULL);
 
     VkExtensionProperties *extensions =
-        malloc (sizeof(VkExtensionProperties) * extension_count);
+        malloc (sizeof (VkExtensionProperties) * extension_count);
     ONG_MALLOC_CHECK (extensions);
     vkEnumerateInstanceExtensionProperties (NULL, &extension_count, extensions);
 
@@ -75,14 +75,14 @@ ong_result_t
 init_vulkan (ong_window_t *window)
 {
     #ifndef NDEBUG
-    ong_result_t print_extensions_result = print_extensions();
-    ONG_RETURN_IFN_SUCCESS(print_extensions_result);
+    ong_result_t print_extensions_result = print_extensions ();
+    ONG_RETURN_IFN_SUCCESS (print_extensions_result);
     #endif /* not NDEBUG */
 
     ong_result_t instance_create_result = create_instance
         (window->create_data->title, &window->create_data->version,
          &window->instance);
-    ONG_RETURN_IFN_SUCCESS(instance_create_result);
+    ONG_RETURN_IFN_SUCCESS (instance_create_result);
 
     return ONG_SUCCESS;
 }
